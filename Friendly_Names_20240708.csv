@@ -1,0 +1,224 @@
+Category,Class,SubClass,Tier,NESCS_Code,Friendly_Name,DR_Class,DR_SubClass,FST_Class,FST_SubClass,Color_code,Pie_Class,Pie_Color_code
+Beneficiary,Agricultural,Agricultural,1,10,Agriculture in General,Agricultural,Agriculture in General,Agricultural,NA,#FBA273,Agricultural,#FBA273
+Beneficiary,Agricultural,Livestock Grazers,2,11,Livestock Grazers,Agricultural,Livestock Grazers,Agricultural,Livestock Grazers,#FBA273,Agricultural,#FBA273
+Beneficiary,Agricultural,Agricultural Processors,2,12,Agricultural Processors,Agricultural,Agricultural Processors,Agricultural,Agricultural Processors,#FBA273,Agricultural,#FBA273
+Beneficiary,Agricultural,Aquaculturists,2,13,Aquaculturists,Agricultural,Aquaculturists,Agricultural,Aquaculturalists,#FBA273,Agricultural,#FBA273
+Beneficiary,Agricultural,Farmers,2,14,Farmers,Agricultural,Farmers,Agricultural,Farmers,#FBA273,Agricultural,#FBA273
+Beneficiary,Agricultural,Foresters,2,15,Foresters,Agricultural,Foresters,Agricultural,Foresters,#FBA273,Agricultural,#FBA273
+Beneficiary,Commercial_Industrial,Commercial_Industrial,1,20,Commercial & Industrial in General,Commercial & Industrial,Commercial & Industrial in General,Commercial / Industrial,NA,#E45C57,Commercial & Industrial,#E45C57
+Beneficiary,Commercial_Industrial,Food Extractors,2,21,Commercial Food Extractors & Fisheries,Commercial & Industrial,Commercial Food Extractors,Commercial / Industrial,Food Extractors,#E45C57,Commercial & Industrial,#E45C57
+Beneficiary,Commercial_Industrial,Timber and Fiber and Ornamental Extractors,2,22,Commercial Timber/Fiber/Ornamental Extractors,Commercial & Industrial,Commercial Timber/Fiber/Ornamental Extractors,Commercial / Industrial,Timber / Fiber / Ornamental Extractors,#E45C57,Commercial & Industrial,#E45C57
+Beneficiary,Commercial_Industrial,Industrial Processors,2,23,Commercial/Industrial Processors,Commercial & Industrial,Industrial Processors,Commercial / Industrial,Industrial Processors,#E45C57,Commercial & Industrial,#E45C57
+Beneficiary,Commercial_Industrial,Private Energy Generators,2,24,Private Energy Generators,Commercial & Industrial,Private Energy Generators,Commercial / Industrial,Energy Generators,#E45C57,Commercial & Industrial,#E45C57
+Beneficiary,Commercial_Industrial,Pharmaceutical and Food Supplement Suppliers,2,25,Pharmaceutical & Supplement Suppliers,Commercial & Industrial,Pharmaceutical and Food Supplement Suppliers,Commercial / Industrial,Pharmaceutical / Food Supplement Suppliers,#E45C57,Commercial & Industrial,#E45C57
+Beneficiary,Commercial_Industrial,Fur_Hide Trappers and Hunters,2,26,Commercial Fur/Hide Trappers,Commercial & Industrial,Commercial Fur/Hide Trappers & Hunters,Commercial / Industrial,Fur / Hide Trappers / Hunters,#E45C57,Commercial & Industrial,#E45C57
+Beneficiary,Commercial_Industrial,Private Water Plant Operators,2,27,Private Water Plant Operators,Commercial & Industrial,Private Water Plant Operators,Commercial / Industrial,Private Drinking Water Plant Operators,#E45C57,Commercial & Industrial,#E45C57
+Beneficiary,Commercial_Industrial,Commercial_Industrial Property Owner,2,28,Commercial/Industrial Property Owners,Commercial & Industrial,Commercial Property Owners,Commercial / Industrial,Commercial Property Owners,#E45C57,Commercial & Industrial,#E45C57
+Beneficiary,Government and Municipal and Residential,Government and Municipal and Residential,1,30,Government / Municipal / Residential in General,Government / Municipal / Residential,Government / Municipal / Residential in General,Governmental / Municipal / Residential,NA,#B671EC,Government / Municipal / Residential,#B671EC
+Beneficiary,Government and Municipal and Residential,Municipal Drinking Water Plant Operators,2,31,Public Water Plant Operators,Government / Municipal / Residential,Municipal Water Plant Operators,Governmental / Municipal / Residential,Municipal Drinking Water Plant Operators,#B671EC,Government / Municipal / Residential,#B671EC
+Beneficiary,Government and Municipal and Residential,Residential Property Owners,2,32,Residential Property Owners,Government / Municipal / Residential,Residential Property Owners,Governmental / Municipal / Residential,Residential Property Owners,#B671EC,Government / Municipal / Residential,#B671EC
+Beneficiary,Government and Municipal and Residential,Public Sector Property Owners,2,33,Public Property Owners,Government / Municipal / Residential,Public Sector Property Owners,Governmental / Municipal / Residential,Public Sector Property Owners,#B671EC,Government / Municipal / Residential,#B671EC
+Beneficiary,Government and Municipal and Residential,Military_Coast Guard,2,34,Military and Coast Guard,Government / Municipal / Residential,Military & Coast Guard,Governmental / Municipal / Residential,Military / Coast Guard,#B671EC,Government / Municipal / Residential,#B671EC
+Beneficiary,Government and Municipal and Residential,Public Energy Generators,2,35,Public Energy Generators,Government / Municipal / Residential,Public Energy Generators,Governmental / Municipal / Residential,Public Energy Generators,#B671EC,Government / Municipal / Residential,#B671EC
+Beneficiary,Commercial_Military Transportation,Commercial_Military Transportation,1,40,Transportation & Shipping in General,Transportation & Shipping,Transportation & Shipping in General,Transportation,NA,#660007,Transportation & Shipping,#660007
+Beneficiary,Commercial_Military Transportation,Transporters of Goods,2,41,Transporters of Goods,Transportation & Shipping,Transporters of Goods,Transportation,Transporters of Goods,#660007,Transportation & Shipping,#660007
+Beneficiary,Commercial_Military Transportation,Transporters of People,2,42,Transporters of People,Transportation & Shipping,Transporters of People,Transportation,Transporters of People,#660007,Transportation & Shipping,#660007
+Beneficiary,Subsistence,Subsistence,1,50,Subsistence in General,Subsistence Users,Subsistence in General,Subsistence,NA,#73C2BE,Subsistence Users,#73C2BE
+Beneficiary,Subsistence,Water Subsisters,2,51,Water Subsisters,Subsistence Users,Water Subsisters,Subsistence,Water Subsisters,#73C2BE,Subsistence Users,#73C2BE
+Beneficiary,Subsistence,Food and Medicinal Subsisters,2,52,Food and Medicinal Subsisters,Subsistence Users,Food & Medicinal Subsisters,Subsistence,Food and Medicinal Subsisters,#73C2BE,Subsistence Users,#73C2BE
+Beneficiary,Subsistence,Timber and Fiber and Fur_Hide Subsisters,2,53,Tiber & Fiber & Fur Subsisters,Subsistence Users,Timber & Fiber & Fur Subsisters,Subsistence,Timber / Fiber / Ornamental Subsisters,#73C2BE,Subsistence Users,#73C2BE
+Beneficiary,Subsistence,Building Material Subsisters,2,54,Building Material Subsisters,Subsistence Users,Building Material Subsisters,Subsistence,Building Material Subsisters,#73C2BE,Subsistence Users,#73C2BE
+Beneficiary,Recreational,Recreational,1,60,Recreational in General,Recreational,Recreation in General,Recreational,NA,#902753,Recreational,#902753
+Beneficiary,Recreational,Experiencers and Viewers,2,61,Experiencers/Viewers,Recreational,Experiencers & Viewers,Recreational,Experiencers / Viewers,#902753,Recreational,#902753
+Beneficiary,Recreational,Food Pickers and Gatherers,2,62,Food Pickers/Gatherers,Recreational,Food Pickers & Gatherers,Recreational,Food Pickers / Gatherers,#902753,Recreational,#902753
+Beneficiary,Recreational,Hunters,2,63,Recreational Hunters,Recreational,Recreational Hunters,Recreational,Hunters,#902753,Recreational,#902753
+Beneficiary,Recreational,Anglers,2,64,Recreational Fishermen,Recreational,Recreational Anglers & Fishermen,Recreational,Anglers,#902753,Recreational,#902753
+Beneficiary,Recreational,Waders and Swimmers and Divers,2,65,Waders & Swimmers & Divers,Recreational,Recreational Swimmers & Waders & Divers,Recreational,Waders / Swimmers / Divers,#902753,Recreational,#902753
+Beneficiary,Recreational,Boaters,2,66,Recreational Boaters,Recreational,Recreational Boaters,Recreational,Boaters,#902753,Recreational,#902753
+Beneficiary,Inspirational,Inspirational,1,70,Inspirational in General,Inspirational,Inspirational in General,Inspirational,NA,#4D986E,Inspirational,#4D986E
+Beneficiary,Inspirational,Spiritual and Ceremonial Participants,2,71,Spiritual and Ceremonial Participants,Inspirational,Spiritual and Ceremonial Participants,Inspirational,Spiritual and Ceremonial Participants,#4D986E,Inspirational,#4D986E
+Beneficiary,Inspirational,Artists,2,72,Artists,Inspirational,Artists,Inspirational,Artists,#4D986E,Inspirational,#4D986E
+Beneficiary,Learning,Learning,1,80,Learning in General,Learning,Learning in General,Learning,NA,#E9D758,Learning,#E9D758
+Beneficiary,Learning,Educators and Students,2,81,Educators/Students,Learning,Educators and Students,Learning,Students and Educators,#E9D758,Learning,#E9D758
+Beneficiary,Learning,Researchers,2,82,Researchers,Learning,Researchers,Learning,Researchers,#E9D758,Learning,#E9D758
+Beneficiary,Non-Use,Non-Use,1,90,People Who Care In General,People Who Care,People Who Care In General,Non-Use,NA,#2F5287,People Who Care,#2F5287
+Beneficiary,Non-Use,People Who Care (Existence),2,91,People Who Care (Existence),People Who Care,People Who Care (Existence),Non-Use,People Who Care,#2F5287,People Who Care,#2F5287
+Beneficiary,Non-Use,People Who Care (Option_Bequest),2,92,People Who Care (Option_Bequest),People Who Care,People Who Care (Option Bequest),Non-Use,People Who Care,#2F5287,People Who Care,#2F5287
+Beneficiary,Humanity,All Humans,1,101,All Humans,All Humans,All Humans,Governmental / Municipal / Residential,NA,#8c42c7,All Humans,#8c42c7
+Environment,Aquatic,Aquatic,1,100,Aquatic Ecosystems in General,Aquatic Ecosystems in General,Aquatic Ecosystems in General,NA,NA,#08306b,Aquatic Ecosystems in General,#08306b
+Environment,Aquatic,Groundwater,2,100,Groundwater,Aquatic Ecosystems in General,Aquatic Ecosystems in General,NA,NA,#08306b,Aquatic: Groundwater,#08306b
+Environment,Aquatic,Open Water,2,110,Open Water in General,Aquatic: Open Water,Open Water in General,NA,NA,#08519c,Aquatic: Open Water in General,#08519c
+Environment,Open Water,Rivers and Streams,3,111,Rivers and Streams,Aquatic: Open Water,Rivers and Streams,NA,NA,#08519c,Aquatic: Rivers and Streams,#08519c
+Environment,Open Water,Lakes and Ponds,3,112,Lakes and Ponds,Aquatic: Open Water,Lakes and Ponds,NA,NA,#08519c,Aquatic: Lakes and Ponds,#08519c
+Environment,Coastal/Estuarine,Beach and Dunes,4,113,Beach and Dunes,Aquatic: Open Water,Near Coastal Marine and Estuarine,NA,NA,#08519c,Aquatic: Beach and Dunes,#08519c
+Environment,Coastal/Estuarine,Eel and Sea Grass,4,113,Eel and Sea Grass,Aquatic: Open Water,Near Coastal Marine and Estuarine,NA,NA,#08519c,Aquatic: Eel and Sea Grass,#08519c
+Environment,Coastal/Estuarine,Rocky Shore,4,113,Rocky Shore,Aquatic: Open Water,Near Coastal Marine and Estuarine,NA,NA,#08519c,Aquatic: Rocky Shore,#08519c
+Environment,Coastal/Estuarine,Tidal flat,4,113,Tidal flat,Aquatic: Open Water,Near Coastal Marine and Estuarine,NA,NA,#08519c,Aquatic: Tidal Flats,#08519c
+Environment,Open Water,Coastal/Estuarine,3,114,Coastal Ecosystems in General,Aquatic: Open Water,Near Coastal Marine and Estuarine,NA,NA,#08519c,Aquatic: Coastal Ecosystems in General,#08519c
+Environment,Open Oceans and Seas,Kelp Forest,4,114,Kelp Forest,Aquatic: Open Water,Open Oceans and Seas,NA,NA,#08519c,Aquatic: Kelp Forest,#08519c
+Environment,Open Oceans and Seas,Reefs,4,114,Reefs,Aquatic: Open Water,Open Oceans and Seas,NA,NA,#08519c,Aquatic: Reefs,#08519c
+Environment,Open Water,Open Oceans and Seas,3,114,Open Oceans and Seas,Aquatic: Open Water,Open Oceans and Seas,NA,NA,#08519c,Aquatic: Open Oceans and Seas,#08519c
+Environment,Aquatic,Wetlands,2,120,Wetlands in General,Aquatic: Wetlands,Wetlands in General,NA,NA,#2171b5,Aquatic: Wetlands in General,#2171b5
+Environment,Wetlands,Woody Wetlands,3,121,Woody Wetlands,Aquatic: Wetlands,Woody Wetlands,NA,NA,#2171b5,Aquatic: Woody Wetlands in General,#2171b5
+Environment,Woody Wetlands,Mangroves,4,121,Mangroves,Aquatic: Wetlands,Woody Wetlands,NA,NA,#2171b5,Aquatic: Mangroves,#2171b5
+Environment,Emergent Herbaceous Wetlands,Salt Marsh,4,122,Salt Marsh,Aquatic: Wetlands,Emergent Wetlands,NA,NA,#2171b5,Aquatic: Salt Marsh,#2171b5
+Environment,Wetlands,Emergent Herbaceous Wetlands,3,122,Emergent Wetlands,Aquatic: Wetlands,Emergent Wetlands,NA,NA,#2171b5,Aquatic: Emergent Wetlands in General,#2171b5
+Environment,Terrestrial,Terrestrial,1,200,Terrestrial Ecosystems in General,Terrestrial Ecosystems in General,Terrestrial Ecosystems in General,NA,NA,#00441b,Terrestrial Ecosystems in General,#00441b
+Environment,Terrestrial,Forests,2,210,Forests in General,Terrestrial: Forests,Forests in General,NA,NA,#006d2c,Terrestrial: Forests in General,#006d2c
+Environment,Forests,Deciduous Forest,3,211,Deciduous Forest,Terrestrial: Forests,Deciduous Forest,NA,NA,#006d2c,Terrestrial: Deciduous Forests,#006d2c
+Environment,Forests,Evergreen Forest,3,212,Evergreen Forest,Terrestrial: Forests,Evergreen Forest,NA,NA,#006d2c,Terrestrial: Evergreen Forests,#006d2c
+Environment,Forests,Mixed Forest,3,213,Mixed Forest,Terrestrial: Forests,Mixed Forest,NA,NA,#006d2c,Terrestrial: Mixed Forests,#006d2c
+Environment,Terrestrial,Agroecosystems,2,220,Agroecosystems,Terrestrial: Agroecosystems,Agroecosystems,NA,NA,#238b45,Terrestrial: Agroecosystems,#238b45
+Environment,Agroecosystems,Pasture and Hay,3,221,Pasture and Hay,Terrestrial: Agroecosystems,Pasture and Hay,NA,NA,#238b45,Terrestrial: Pasture and Hay,#238b45
+Environment,Agroecosystems,Cultivated Crops,3,222,Cultivated Crops,Terrestrial: Agroecosystems,Cultivated Crops,NA,NA,#238b45,Terrestrial: Cultivated Crops,#238b45
+Environment,Terrestrial,Grasslands,2,231,Grasslands,Terrestrial: Grasslands,Grasslands,NA,NA,#41ab5d,Terrestrial: Grasslands,#41ab5d
+Environment,Terrestrial,Scrublands_Shrublands,2,241,Scrublands and Shrublands,Terrestrial: Scrublands and Shrublands,Scrublands and Shrublands,NA,NA,#74c476,Terrestrial: Scrublands and Shrublands,#74c476
+Environment,Terrestrial,Tundra,2,250,Tundra in General,Terrestrial: Tundra,Tundra in General,NA,NA,#a1d99b,Terrestrial: Tundra in General,#a1d99b
+Environment,Tundra,Lichens,3,251,Lichens,Terrestrial: Tundra,Lichens,NA,NA,#a1d99b,Terrestrial: Tundra Lichens,#a1d99b
+Environment,Tundra,Moss,3,252,Moss,Terrestrial: Tundra,Moss,NA,NA,#a1d99b,Terrestrial: Tundra Moss,#a1d99b
+Environment,Tundra,Dwarf Scrub,3,253,Dwarf Scrub,Terrestrial: Tundra,Dwarf Scrub,NA,NA,#a1d99b,Terrestrial: Tundra Dwarf Scrub,#a1d99b
+Environment,Tundra,Sedge_Herbaceous,3,254,Sedge and Herbaceous Tundra,Terrestrial: Tundra,Sedge and Herbaceous Tundra,NA,NA,#a1d99b,Terrestrial: Tundra Sedge and Herbaceous,#a1d99b
+Environment,Terrestrial,Ice and Snow,2,260,Ice and Snow,Terrestrial: Ice and Snow,Ice and Snow,NA,NA,#c7e9c0,Terrestrial: Ice and Snow,#c7e9c0
+Environment,Terrestrial,Urban_Suburban,2,270,Urban Suburban Greenspace,Terrestrial: Urban Suburban Greenspace,Urban Suburban Greenspace,NA,NA,#addd8e,Terrestrial: Urban Suburban Greenspace,#addd8e
+Environment,Terrestrial,Barren_Rock and Sand,2,281,Barren Rock and Sand,Terrestrial: Barren Rock and Sand,Barren Rock and Sand,NA,NA,#d9f0a3,Terrestrial: Barren Rock and Sand,#d9f0a3
+FEGS,Atmosphere,Atmosphere,1,1,Atmosphere in General,Atmosphere,Atmosphere in General,Atmosphere,NA,#22B5C3,Atmosphere,#22B5C3
+FEGS,Atmosphere,Air Quality,2,1.1,Air Quality,Atmosphere,Air Quality,Atmosphere,Air Quality,#22B5C3,Atmosphere,#22B5C3
+FEGS,Atmosphere,Precipitation,2,1.2,Precipitation,Atmosphere,Precipitation,Atmosphere,Precipitation,#22B5C3,Atmosphere,#22B5C3
+FEGS,Atmosphere,Sunlight,2,1.3,Sunlight,Atmosphere,Sunlight,Atmosphere,Sunlight,#22B5C3,Atmosphere,#22B5C3
+FEGS,Atmosphere,Temperature,2,1.4,Temperature,Atmosphere,Temperature,Atmosphere,Temperature,#22B5C3,Atmosphere,#22B5C3
+FEGS,Atmosphere,Wind Strength_Speed,2,1.5,Wind Strength & Speed,Atmosphere,Wind Strength & Speed,Atmosphere,Wind Strength / Speed,#22B5C3,Atmosphere,#22B5C3
+FEGS,Soil,Soil,1,2,Soil,Soil & Substrate,Soil & Substrate in General,Soil,NA,#815D56,Soil & Substrate,#815D56
+FEGS,Soil,Soil Quality,2,2.1,Soil Quality,Soil & Substrate,Soil Quality,Soil,Soil Quality,#815D56,Soil & Substrate,#815D56
+FEGS,Soil,Soil Quantity,2,2.2,Soil Quantity,Soil & Substrate,Soil Quantity,Soil,Soil Quantity,#815D56,Soil & Substrate,#815D56
+FEGS,Soil,Substrate Quality,2,2.3,Substrate Quality,Soil & Substrate,Substrate Quality,Soil,Substrate Quality,#815D56,Soil & Substrate,#815D56
+FEGS,Soil,Substrate Quantity,2,2.4,Substrate Quantity,Soil & Substrate,Substrate Quantity,Soil,Substrate Quantity,#815D56,Soil & Substrate,#815D56
+FEGS,Water,Water,1,3,Water,Water,Water in General,Water,NA,#2A75A9,Water,#2A75A9
+FEGS,Water,Water Quality,2,3.1,Water Quality,Water,Water Quality,Water,Water Quality,#2A75A9,Water,#2A75A9
+FEGS,Water,Water Quantity,2,3.2,Water Quantity,Water,Water Quantity,Water,Water Quantity,#2A75A9,Water,#2A75A9
+FEGS,Water,Water Movement,2,3.3,Water Movement/Navigability,Water,Water Movement & Navigability,Water,Water Movement,#2A75A9,Water,#2A75A9
+FEGS,Fauna,Fauna,1,4,Fauna,Fauna,Fauna in General,Fauna,NA,#C93435,Fauna: General,#C93435
+FEGS,Fauna,Fauna_birds,2,4,Birds,Fauna,Fauna in General,Fauna,NA,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Fauna_fish,2,4,Fish & Shellfish,Fauna,Fauna in General,Fauna,NA,#C93435,Fauna: Fish & Shellfish,#C93435
+FEGS,Fauna,Fauna_insects,2,4,Insects & Invertebrates,Fauna,Fauna in General,Fauna,NA,#C93435,Fauna: Insects & Invertebrates,#C93435
+FEGS,Fauna,Fauna_mammals,2,4,Mammals,Fauna,Fauna in General,Fauna,NA,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Fauna_reptiles,2,4,Reptiles,Fauna,Fauna in General,Fauna,NA,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Fauna Community,2,4.1,Fauna Community,Fauna,Fauna Community,Fauna,Fauna Community,#C93435,Fauna: General,#C93435
+FEGS,Fauna,Fauna Community:Fauna_birds,2,4.1,Bird Community,Fauna,Fauna Community,Fauna,Fauna Community,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Fauna Community:Fauna_fish,2,4.1,Fish/Shellfish Community,Fauna,Fauna Community,Fauna,Fauna Community,#C93435,Fauna: Fish & Shellfish,#C93435
+FEGS,Fauna,Fauna Community:Fauna_insects,2,4.1,Insect/Invertebrate Community,Fauna,Fauna Community,Fauna,Fauna Community,#C93435,Fauna: Insects & Invertebrates,#C93435
+FEGS,Fauna,Fauna Community:Fauna_mammals,2,4.1,Mammal Community,Fauna,Fauna Community,Fauna,Fauna Community,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Fauna Community:Fauna_reptiles,2,4.1,Reptile/Amphibian Community,Fauna,Fauna Community,Fauna,Fauna Community,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Edible Fauna,2,4.2,Edible Fauna,Fauna,Edible Fauna,Fauna,Edible Fauna,#C93435,Fauna: General,#C93435
+FEGS,Fauna,Edible Fauna:Fauna_birds,2,4.2,Edible Birds,Fauna,Edible Fauna,Fauna,Edible Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Edible Fauna:Fauna_fish,2,4.2,Edible Fish/Shellfish,Fauna,Edible Fauna,Fauna,Edible Fauna,#C93435,Fauna: Fish & Shellfish,#C93435
+FEGS,Fauna,Edible Fauna:Fauna_insects,2,4.2,Edible Insects/Invertebrates,Fauna,Edible Fauna,Fauna,Edible Fauna,#C93435,Fauna: Insects & Invertebrates,#C93435
+FEGS,Fauna,Edible Fauna:Fauna_mammals,2,4.2,Edible Mammals,Fauna,Edible Fauna,Fauna,Edible Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Edible Fauna:Fauna_reptiles,2,4.2,Edible Reptiles/Amphibians,Fauna,Edible Fauna,Fauna,Edible Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Medicinal Fauna,2,4.3,Medicinal Fauna,Fauna,Medicinal Fauna,Fauna,Medicinal Fauna,#C93435,Fauna: General,#C93435
+FEGS,Fauna,Medicinal Fauna:Fauna_birds,2,4.3,Medicinal Birds,Fauna,Medicinal Fauna,Fauna,Medicinal Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Medicinal Fauna:Fauna_fish,2,4.3,Medicinal Fish/Shellfish,Fauna,Medicinal Fauna,Fauna,Medicinal Fauna,#C93435,Fauna: Fish & Shellfish,#C93435
+FEGS,Fauna,Medicinal Fauna:Fauna_insects,2,4.3,Medicinal Insects/Invertebrates,Fauna,Medicinal Fauna,Fauna,Medicinal Fauna,#C93435,Fauna: Insects & Invertebrates,#C93435
+FEGS,Fauna,Medicinal Fauna:Fauna_mammals,2,4.3,Medicinal Mammals,Fauna,Medicinal Fauna,Fauna,Medicinal Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Medicinal Fauna:Fauna_reptiles,2,4.3,Medicinal Reptiles/Amphibians,Fauna,Medicinal Fauna,Fauna,Medicinal Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Keystone Fauna,2,4.4,Keystone Fauna,Fauna,Keystone Fauna,Fauna,Keystone Fauna,#C93435,Fauna: General,#C93435
+FEGS,Fauna,Keystone Fauna:Fauna_birds,2,4.4,Keystone Birds,Fauna,Keystone Fauna,Fauna,Keystone Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Keystone Fauna:Fauna_fish,2,4.4,Keystone Fish,Fauna,Keystone Fauna,Fauna,Keystone Fauna,#C93435,Fauna: Fish & Shellfish,#C93435
+FEGS,Fauna,Keystone Fauna:Fauna_insects,2,4.4,Keystone Insects/Invertebrates,Fauna,Keystone Fauna,Fauna,Keystone Fauna,#C93435,Fauna: Insects & Invertebrates,#C93435
+FEGS,Fauna,Keystone Fauna:Fauna_mammals,2,4.4,Keystone Mammals,Fauna,Keystone Fauna,Fauna,Keystone Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Keystone Fauna:Fauna_reptiles,2,4.4,Keystone Reptiles/Amphibians,Fauna,Keystone Fauna,Fauna,Keystone Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Charismatic Fauna,2,4.5,Charismatic Fauna,Fauna,Charismatic Fauna,Fauna,Charismatic Fauna,#C93435,Fauna: General,#C93435
+FEGS,Fauna,Charismatic Fauna:Fauna_birds,2,4.5,Charismatic Birds,Fauna,Charismatic Fauna,Fauna,Charismatic Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Charismatic Fauna:Fauna_fish,2,4.5,Charismatic Fish/Shellfish,Fauna,Charismatic Fauna,Fauna,Charismatic Fauna,#C93435,Fauna: Fish & Shellfish,#C93435
+FEGS,Fauna,Charismatic Fauna:Fauna_insects,2,4.5,Charismatic Insects/Invertebrates,Fauna,Charismatic Fauna,Fauna,Charismatic Fauna,#C93435,Fauna: Insects & Invertebrates,#C93435
+FEGS,Fauna,Charismatic Fauna:Fauna_mammals,2,4.5,Charismatic Mammals,Fauna,Charismatic Fauna,Fauna,Charismatic Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Charismatic Fauna:Fauna_reptiles,2,4.5,Charismatic Reptiles/Amphibians,Fauna,Charismatic Fauna,Fauna,Charismatic Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Rare Fauna,2,4.6,Rare Fauna,Fauna,Rare Fauna,Fauna,Rare Fauna,#C93435,Fauna: General,#C93435
+FEGS,Fauna,Rare Fauna:Fauna_birds,2,4.6,Rare Birds,Fauna,Rare Fauna,Fauna,Rare Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Rare Fauna:Fauna_fish,2,4.6,Rare Fish/Shellfish,Fauna,Rare Fauna,Fauna,Rare Fauna,#C93435,Fauna: Fish & Shellfish,#C93435
+FEGS,Fauna,Rare Fauna:Fauna_insects,2,4.6,Rare Insects/Invertebrates,Fauna,Rare Fauna,Fauna,Rare Fauna,#C93435,Fauna: Insects & Invertebrates,#C93435
+FEGS,Fauna,Rare Fauna:Fauna_mammals,2,4.6,Rare Mammals,Fauna,Rare Fauna,Fauna,Rare Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Rare Fauna:Fauna_reptiles,2,4.6,Rare Reptiles/Amphibians,Fauna,Rare Fauna,Fauna,Rare Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Pollinating Fauna,2,4.7,Pollinating Fauna,Fauna,Pollinating Fauna,Fauna,Pollinating Fauna,#C93435,Fauna: General,#C93435
+FEGS,Fauna,Pollinating Fauna:Fauna_birds,2,4.7,Pollinating Birds,Fauna,Pollinating Fauna,Fauna,Pollinating Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Pollinating Fauna:Fauna_fish,2,4.7,Pollinating Fish/Shellfish,Fauna,Pollinating Fauna,Fauna,Pollinating Fauna,#C93435,Fauna: Fish & Shellfish,#C93435
+FEGS,Fauna,Pollinating Fauna:Fauna_insects,2,4.7,Pollinating Insects/Invertebrates,Fauna,Pollinating Fauna,Fauna,Pollinating Fauna,#C93435,Fauna: Insects & Invertebrates,#C93435
+FEGS,Fauna,Pollinating Fauna:Fauna_mammals,2,4.7,Pollinating Mammals,Fauna,Pollinating Fauna,Fauna,Pollinating Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Pollinating Fauna:Fauna_reptiles,2,4.7,Pollinating Reptiles/Amphibians,Fauna,Pollinating Fauna,Fauna,Pollinating Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Pest Fauna,2,4.8,Pest/Invasive Fauna,Fauna,Pest Predator & Pest Fauna,Fauna,Pest Predator / Depredator Fauna,#C93435,Fauna: General,#C93435
+FEGS,Fauna,Pest Fauna:Fauna_birds,2,4.8,Pest/Invasive Birds,Fauna,Pest Predator & Pest Fauna,Fauna,Pest Predator / Depredator Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Pest Fauna:Fauna_fish,2,4.8,Pest/Invasive Fish/Shellfish,Fauna,Pest Predator & Pest Fauna,Fauna,Pest Predator / Depredator Fauna,#C93435,Fauna: Fish & Shellfish,#C93435
+FEGS,Fauna,Pest Fauna:Fauna_insects,2,4.8,Pest/Invasive Insects/Invertebrates,Fauna,Pest Predator & Pest Fauna,Fauna,Pest Predator / Depredator Fauna,#C93435,Fauna: Insects & Invertebrates,#C93435
+FEGS,Fauna,Pest Fauna:Fauna_mammals,2,4.8,Pest/Invasive Mammals,Fauna,Pest Predator & Pest Fauna,Fauna,Pest Predator / Depredator Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Pest Fauna:Fauna_reptiles,2,4.8,Pest/Invasive Reptiles/Amphibians,Fauna,Pest Predator & Pest Fauna,Fauna,Pest Predator / Depredator Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Bait fauna,2,4.9,Bait Fauna,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: General,#C93435
+FEGS,Fauna,Bait fauna:Fauna_birds,2,4.9,Bait Birds,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Bait fauna:Fauna_fish,2,4.9,Bait Fish/Shellfish,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Fish & Shellfish,#C93435
+FEGS,Fauna,Bait fauna:Fauna_insects,2,4.9,Bait Insects/Invertebrates,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Insects & Invertebrates,#C93435
+FEGS,Fauna,Bait fauna:Fauna_mammals,2,4.9,Bait Mammals,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Bait fauna:Fauna_reptiles,2,4.9,Bait Reptiles,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Commercially Important Fauna,2,4.9,Commercially Important Fauna,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: General,#C93435
+FEGS,Fauna,Commercially Important Fauna:Fauna_birds,2,4.9,Commercially Important Birds,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Commercially Important Fauna:Fauna_fish,2,4.9,Commercially Important Fish/Shellfish,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Fish & Shellfish,#C93435
+FEGS,Fauna,Commercially Important Fauna:Fauna_insects,2,4.9,Commercially Important Insects/Invertebrates,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Insects & Invertebrates,#C93435
+FEGS,Fauna,Commercially Important Fauna:Fauna_mammals,2,4.9,Commercially Important Mammals,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Commercially Important Fauna:Fauna_reptiles,2,4.9,Commercially Important Reptiles/Amphibians,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Fauna for fur_hide_or trophy,2,4.9,Fauna for Fur/Hide/Trophy,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: General,#C93435
+FEGS,Fauna,Fauna for fur_hide_or trophy:Fauna_birds,2,4.9,Birds for Feathers/Hide/Trophy,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Fauna for fur_hide_or trophy:Fauna_fish,2,4.9,Fish/Shellfish for Skin/Trophy,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Fish & Shellfish,#C93435
+FEGS,Fauna,Fauna for fur_hide_or trophy:Fauna_insects,2,4.9,Insect/Invertebrate for Collection/Trophy,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Insects & Invertebrates,#C93435
+FEGS,Fauna,Fauna for fur_hide_or trophy:Fauna_mammals,2,4.9,Mammals for Fur/Hide/Trophy,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Fauna for fur_hide_or trophy:Fauna_reptiles,2,4.9,Reptiles/Amphibians for Hide/Trophy,Fauna,Commercially Important Fauna,Fauna,Commercially Important Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Spiritually_Culturally Important Fauna,2,4.99,Spiritually/Culturally Important Fauna,Fauna,Spiritually/Culturally Important Fauna,Fauna,Spiritually / Culturally Important Fauna,#C93435,Fauna: General,#C93435
+FEGS,Fauna,Spiritually_Culturally Important Fauna:Fauna_birds,2,4.99,Spiritually/Culturally Important Birds,Fauna,Spiritually/Culturally Important Fauna,Fauna,Spiritually / Culturally Important Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Spiritually_Culturally Important Fauna:Fauna_fish,2,4.99,Spiritually/Culturally Important Fish/Shellfish,Fauna,Spiritually/Culturally Important Fauna,Fauna,Spiritually / Culturally Important Fauna,#C93435,Fauna: Fish & Shellfish,#C93435
+FEGS,Fauna,Spiritually_Culturally Important Fauna:Fauna_insects,2,4.99,Spiritually/Culturally Important Insects/Invertebrates,Fauna,Spiritually/Culturally Important Fauna,Fauna,Spiritually / Culturally Important Fauna,#C93435,Fauna: Insects & Invertebrates,#C93435
+FEGS,Fauna,Spiritually_Culturally Important Fauna:Fauna_mammals,2,4.99,Spiritually/Culturally Important Mammals,Fauna,Spiritually/Culturally Important Fauna,Fauna,Spiritually / Culturally Important Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Fauna,Spiritually_Culturally Important Fauna:Fauna_reptiles,2,4.99,Spiritually/Culturally Important Reptiles/Amphibians,Fauna,Spiritually/Culturally Important Fauna,Fauna,Spiritually / Culturally Important Fauna,#C93435,Fauna: Birds Mammals Reptiles,#C93435
+FEGS,Flora,Flora,1,5,Other Flora,Flora,Flora in General,Flora,NA,#369636,Flora,#369636
+FEGS,Flora,Flora Community,2,5.1,Flora Community,Flora,Flora Community,Flora,Flora Community,#369636,Flora,#369636
+FEGS,Flora,Pest Flora,2,5.1,Pest/Invasive Flora,Flora,Flora Community,Flora,Flora Community,#369636,Flora,#369636
+FEGS,Flora,Edible Flora,2,5.2,Edible Flora,Flora,Edible Flora,Flora,Edible Flora,#369636,Flora,#369636
+FEGS,Flora,Medicinal Flora,2,5.3,Medicinal Flora,Flora,Medicinal Flora,Flora,Medicinal Flora,#369636,Flora,#369636
+FEGS,Flora,Keystone Flora,2,5.4,Keystone Flora,Flora,Keystone Flora,Flora,Keystone Flora,#369636,Flora,#369636
+FEGS,Flora,Charismatic Flora,2,5.5,Charismatic Flora,Flora,Charismatic Flora,Flora,Charismatic Flora,#369636,Flora,#369636
+FEGS,Flora,Rare Flora,2,5.6,Rare Flora,Flora,Rare Flora,Flora,Rare Flora,#369636,Flora,#369636
+FEGS,Flora,Commercially Important Flora,2,5.7,Commercially Important Flora,Flora,Commercially Important Flora,Flora,Commercially Important Flora,#369636,Flora,#369636
+FEGS,Flora,Spiritually_Culturally Important Flora,2,5.8,Culturally Important Flora,Flora,Spiritually/Culturally Important Flora,Flora,Spiritually / Culturally Important Flora,#369636,Flora,#369636
+FEGS,Fungi,Fungi,1,6,Other Fungi,Fungi,Fungi in General,Fungi,NA,#9372B2,Fungi,#9372B2
+FEGS,Fungi,Keystone Fungi,2,6,Keystone Fungi,Fungi,Fungal Community,Fungi,Fungal Community,#9372B2,Fungi,#9372B2
+FEGS,Fungi,Fungal Community,2,6.1,Fungal Community,Fungi,Fungal Community,Fungi,Fungal Community,#9372B2,Fungi,#9372B2
+FEGS,Fungi,Pest Fungi,2,6.1,Pest/Invasive Fungi,Fungi,Fungal Community,Fungi,Fungal Community,#9372B2,Fungi,#9372B2
+FEGS,Fungi,Edible Fungi,2,6.2,Edible Fungi,Fungi,Edible Fungi,Fungi,Edible Fungi,#9372B2,Fungi,#9372B2
+FEGS,Fungi,Medicinal Fungi,2,6.3,Medicinal Fungi,Fungi,Medicinal Fungi,Fungi,Medicinal Fungi,#9372B2,Fungi,#9372B2
+FEGS,Fungi,Rare Fungi,2,6.4,Rare Fungi,Fungi,Rare Fungi,Fungi,Rare Fungi,#9372B2,Fungi,#9372B2
+FEGS,Fungi,Commercially Important Fungi,2,6.5,Commercially Important Fungi,Fungi,Commercially Important Fungi,Fungi,Commercially Important Fungi,#9372B2,Fungi,#9372B2
+FEGS,Fungi,Charismatic Fungi,2,6.6,Charismatic Fungi,Fungi,Spiritually/Culturally Important Fungi,Fungi,Spiritually / Culturally Important Fungi,#9372B2,Fungi,#9372B2
+FEGS,Fungi,Spiritually_Culturally Important Fungi,2,6.6,Culturally Important Fungi,Fungi,Spiritually/Culturally Important Fungi,Fungi,Spiritually / Culturally Important Fungi,#9372B2,Fungi,#9372B2
+FEGS,Other Natural Components,Other Natural Components,1,7,Natural Materials (Sand/Rock),Other Natural Components,Other Natural Components in General,Other Natural Components,NA,#F3801A,Other Natural Components,#F3801A
+FEGS,Other Natural Components,Fuel Quality,2,7.1,Fuel Quality,Other Natural Components,Fuel Quality,Other Natural Components,Fuel Quality,#F3801A,Other Natural Components,#F3801A
+FEGS,Other Natural Components,Fuel Quantity,2,7.2,Fuel Quantity,Other Natural Components,Fuel Quantity,Other Natural Components,Fuel Quantity,#F3801A,Other Natural Components,#F3801A
+FEGS,Other Natural Components,Fiber Material Quality,2,7.3,Fiber Material Quality,Other Natural Components,Fiber Material Quality,Other Natural Components,Fiber Material Quality,#F3801A,Other Natural Components,#F3801A
+FEGS,Other Natural Components,Fiber Material Quantity,2,7.4,Fiber Material Quantity,Other Natural Components,Fiber Material Quantity,Other Natural Components,Fiber Material Quantity,#F3801A,Other Natural Components,#F3801A
+FEGS,Other Natural Components,Mineral_Chemical Quality,2,7.5,Mineral/Chemical Quality,Other Natural Components,Mineral/Chemical Quality,Other Natural Components,Mineral / Chemical Quality,#F3801A,Other Natural Components,#F3801A
+FEGS,Other Natural Components,Mineral_Chemical Quantity,2,7.6,Mineral/Chemical Quantity,Other Natural Components,Mineral/Chemical Quantity,Other Natural Components,Mineral / Chemical Quantity,#F3801A,Other Natural Components,#F3801A
+FEGS,Other Natural Components,Presence of Other Natural Materials for Artistic Use or Consumption,2,7.7,Ornamental Natural Materials (Shells/Bone),Other Natural Components,Natural Materials for Artistic Use or Consumption,Other Natural Components,"Presence of Other Natural Materials for Artistic Use or Consumption (e.g. Shells, Acorns, Honey)",#F3801A,Other Natural Components,#F3801A
+FEGS,Composite,Composite,1,8,Composite,Composite in General,Composite in General,Composite (and Extreme Events),NA,#DB7FBF,Composite in General,#DB7FBF
+FEGS,Composite,Site Appeal,2,8.1,Site Appeal,Composite: Site Appeal,Site Appeal in General,Composite (and Extreme Events),NA,#CC4CA4,Composite: Site Appeal,#CC4CA4
+FEGS,Site Appeal,Environmental Aesthetics (Sounds),3,8.11,Environmental Aesthetics (Sounds),Composite: Site Appeal,Environmental Aesthetics (Sounds),Composite (and Extreme Events),Sounds,#CC4CA4,Composite: Site Appeal,#CC4CA4
+FEGS,Site Appeal,Environmental Aesthetics (Scents),3,8.12,Environmental Aesthetics (Scents),Composite: Site Appeal,Environmental Aesthetics (Scents),Composite (and Extreme Events),Scents,#CC4CA4,Composite: Site Appeal,#CC4CA4
+FEGS,Site Appeal,Environmental Aesthetics (Viewscapes),3,8.13,Environmental Aesthetics (Viewscapes),Composite: Site Appeal,Environmental Aesthetics (Viewscapes),Composite (and Extreme Events),Viewscapes,#CC4CA4,Composite: Site Appeal,#CC4CA4
+FEGS,Site Appeal,Atmospheric Phenomena,3,8.14,Atmospheric Phenomena,Composite: Site Appeal,Atmospheric Phenomena,Composite (and Extreme Events),"Phenomena (e.g. Sunsets, Northern Lights, etc)",#CC4CA4,Composite: Site Appeal,#CC4CA4
+FEGS,Composite,Ecological Condition,2,8.2,Ecological Condition,Composite: Ecological Condition,Ecological Condition,Composite (and Extreme Events),Ecological Condition,#E6A8D3,Composite: Ecological Condition,#E6A8D3
+FEGS,Regulating or Buffering,Regulating or Buffering,3,8.21,Regulating Services in General,Composite: Ecological Condition,Ecological Condition,Composite (and Extreme Events),Ecological Condition,#E6A8D3,Composite: Ecological Condition,#E6A8D3
+FEGS,Regulating or Buffering,Regulating or Buffering Air,4,8.211,Air Quality & Atmospheric Regulation,Composite: Ecological Condition,Ecological Condition,Composite (and Extreme Events),Ecological Condition,#E6A8D3,Composite: Ecological Regulation of Air,#E6A8D3
+FEGS,Regulating or Buffering,Regulating or Buffering Carbon & Climate,4,8.212,Climate & Carbon Regulation,Composite: Ecological Condition,Ecological Condition,Composite (and Extreme Events),Ecological Condition,#E6A8D3,Composite: Ecological Regulation of Climate,#E6A8D3
+FEGS,Regulating or Buffering,Regulating or Buffering Soil & Sediment,4,8.213,Soil & Sediment Regulation,Composite: Ecological Condition,Ecological Condition,Composite (and Extreme Events),Ecological Condition,#E6A8D3,Composite: Ecological Regulation of Soil & Sediment,#E6A8D3
+FEGS,Regulating or Buffering,Regulating or Buffering Water,4,8.214,Water Quality Regulation (Nutrients & Retention),Composite: Ecological Condition,Ecological Condition,Composite (and Extreme Events),Ecological Condition,#E6A8D3,Composite: Ecological Regulation of Water,#E6A8D3
+FEGS,Composite,Open Space,2,8.3,Open Space,Composite: Open Space,Open Space,Composite (and Extreme Events),Open Space,#F3D5EA,Composite: Open Space,#F3D5EA
+FEGS,Open Space,Open Space (Aesthetic),3,8.31,Open Space (Aesthetic),Composite: Open Space,Open Space,Composite (and Extreme Events),Open Space,#F3D5EA,Composite: Open Space (Aesthetic),#F3D5EA
+FEGS,Open Space,Open Space (Land for Development),3,8.32,Open Space (Land for Development),Composite: Open Space,Open Space,Composite (and Extreme Events),Open Space,#F3D5EA,Composite: Open Space (Land for Development),#F3D5EA
+FEGS,Composite,Extreme Events,2,8.4,Risk of Extreme Events in General,Composite: Extreme Events,Mitigating Extreme Events in General,Composite (and Extreme Events),NA,#EC6EE6,Composite: Extreme Events,#EC6EE6
+FEGS,Extreme Events,Risk of Flooding,3,8.41,Risk of Flooding,Composite: Extreme Events,Mitigating Flooding,Composite (and Extreme Events),Flooding,#EC6EE6,Composite: Extreme Events,#EC6EE6
+FEGS,Extreme Events,Risk of Fire,3,8.42,Risk of Fire,Composite: Extreme Events,Mitigating Wildfire Risk,Composite (and Extreme Events),Wildfire,#EC6EE6,Composite: Extreme Events,#EC6EE6
+FEGS,Extreme Events,Risk of Extreme Weather Events,3,8.43,Risk of Extreme Weather Events,Composite: Extreme Events,Mitigating Extreme Weather,Composite (and Extreme Events),Extreme Weather Events,#EC6EE6,Composite: Extreme Events,#EC6EE6
+FEGS,Extreme Events,Risk of Earthquakes and Landslides,3,8.44,Risk of Earthquakes and Landslides,Composite: Extreme Events,Mitigating Earthquakes & Landslides,Composite (and Extreme Events),Earthquakes,#EC6EE6,Composite: Extreme Events,#EC6EE6

@@ -1,0 +1,14 @@
+ R_USER="C:/Users/syee02/OneDrive - Environmental Protection Agency (EPA)/WorkingFiles/NESCS_DocSearch_Package/FEGSDR"
+
+
+###LIB_DIR="C:/rtools42/x86_64-w64-mingw32.static.posix/lib/pkgconfig"
+###INCLUDE_DIR="C:/rtools42/x86_64-w64-mingw32.static.posix/include/poppler/cpp"
+
+###C:\rtools42\x86_64-w64-mingw32.static.posix\lib\pkgconfig
+###C:\rtools42\usr\lib\mxe\usr\x86_64-w64-mingw32.static.posix\lib\pkgconfig
+###C:\rtools42\x86_64-w64-mingw32.static.posix\include\poppler\cpp
+
+###LDFLAGS=-L/usr/local/opt/openssl@1.1/lib
+###CPPFLAGS=-I/usr/local/opt/openssl@1.1/include
+
+
