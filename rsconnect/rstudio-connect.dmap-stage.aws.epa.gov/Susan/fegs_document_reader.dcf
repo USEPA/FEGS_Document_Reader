@@ -1,0 +1,12 @@
+name: fegs_document_reader
+title: FEGS_Document_Reader
+username: Susan
+account: Susan
+server: rstudio-connect.dmap-stage.aws.epa.gov
+hostUrl: https://rstudio-connect.dmap-stage.aws.epa.gov/__api__
+appId: 172
+bundleId: 6133
+url: https://rstudio-connect.dmap-stage.aws.epa.gov/content/6e74ea8f-8fe2-4c44-bcc9-8994969e0774/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

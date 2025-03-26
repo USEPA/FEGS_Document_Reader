@@ -1,3 +1,5 @@
+# This file contains the functions needed to search keywords and create figures
+
 #' Create the synonym lists
 #'
 #' @param synonym_list_file_path 
@@ -67,54 +69,83 @@ run_manually <- function(docs_dt) {
 # Clean and format PDF text prior to keyword search -----
 pdf_clean <- function(docs) {
   if(class(try(qpdf::pdf_length(docs),silent=TRUE))!="try-error"){
-     ##y_by_lines <- suppressWarnings(pdftools::pdf_text(docs))
-     kw_by_lines <- suppressWarnings(pdfsearch::keyword_search(docs,path=TRUE,token_results=FALSE,keyword = c(''),split_pdf = TRUE,surround_lines = FALSE, ignore_case = TRUE, remove_hyphen = TRUE, heading_search = FALSE,convert_sentence = FALSE,split_pattern="\\p{WHITE_SPACE}{5,}"))
-     y_by_lines <- paste(kw_by_lines$line_text)
-     if(NROW(y_by_lines)==0){y_by_lines <- suppressWarnings(pdftools::pdf_text(docs))}
-  
-     y_by_lines <- stringi::stri_trans_general(str = y_by_lines, id = "Latin-ASCII")
-     y_by_lines <- textclean::replace_contraction(y_by_lines)
-     y_by_lines <- gsub("'", " ", y_by_lines, perl = TRUE)
-  
-     y_by_lines <- gsub("(\")", "", y_by_lines, perl = TRUE, useBytes = TRUE)
-     y_by_lines <- gsub("[\f]", " ", y_by_lines, perl = TRUE, useBytes = TRUE)
-     y_by_lines <- gsub("[\001]|[\002]|[\003]|[\004]|[\005]", " ", y_by_lines, perl = TRUE, useBytes = TRUE)
-     y_by_lines <- gsub("[\r]", " ", y_by_lines, perl = TRUE, useBytes = TRUE)
-     y_by_lines <- gsub("[\n]", "  ", y_by_lines, perl = TRUE, useBytes = TRUE)
-  
-     y_by_lines <- gsub("[\u008f]|[\u0081]|[\u0083]|[\u0093]|[\uF0B7]|[\uF0A7]|[\u2022]|[\u00B7]|[•]| o |^- |^[0-9][,]|^[0-9][.]|^[0-9][ ]|^[0-9][0-9][,]|^[0-9][0-9][.]|^[0-9][0-9][ ]|^[0-9][0-9][0-9][,]|^[0-9][0-9][0-9][.]|^[0-9][0-9][0-9][ ]|[+]|[ ][o][ ]|^[o][ ]", ". ", y_by_lines, perl = TRUE)
-  
-     y_by_lines <- unlist(strsplit(y_by_lines, "\\s\\s"))
-     y_by_lines[grep("^ [A-Z]", y_by_lines, perl = TRUE, useBytes = TRUE)] <- gsub("^ ", ". ", y_by_lines[grep("^ [A-Z]", y_by_lines, perl = TRUE, useBytes = TRUE)], perl = TRUE, useBytes = TRUE)
-     y_by_lines[setdiff(grep("^[A-Z]", y_by_lines, perl = TRUE, useBytes = TRUE),grep("[.]|[;]|[:]", y_by_lines, perl = TRUE, useBytes = TRUE))] <- paste(". ", y_by_lines[setdiff(grep("^[A-Z]", y_by_lines, perl = TRUE, useBytes = TRUE),grep("[.]|[;]|[:]", y_by_lines, perl = TRUE, useBytes = TRUE))], sep = "")
-     y_by_lines[grep("[ ][A-Z][.][ ]", y_by_lines, perl = TRUE, useBytes = TRUE)] <- gsub("[.]","",y_by_lines[grep("[ ][A-Z][.][ ]", y_by_lines, perl = TRUE, useBytes = TRUE)])
-  
-     y_by_lines <- unlist(strsplit(y_by_lines, "\\s"))
-     y_by_lines <- y_by_lines[y_by_lines != ""]
-     y_by_lines <- gsub("[(]", "( ", y_by_lines, perl = TRUE)
-     y_by_lines[grep("^ac[.]|^Dept[.]|^Dr[.]|^est[.]|^etc[.]|^ft[.]|^inc[.]|^cm[.]|^mm[.]|^m[.]|^mi[.]|^rd[.]|^sp[.]|^spp[.]|^sq[.]|^st[.]|^ed[.]|^eds[.]",y_by_lines, ignore.case = TRUE)] <- gsub("[.]", "", y_by_lines[grep("^ac[.]|^Dept[.]|^Dr[.]|^est[.]|^etc[.]|^ft[.]|^inc[.]|^cm[.]|^mm[.]|^m[.]|^mi[.]|^rd[.]|^sp[.]|^spp[.]|^sq[.]|^st[.]|^ed[.]|^eds[.]",y_by_lines, ignore.case = TRUE)], ignore.case = TRUE, perl = TRUE, useBytes = TRUE)
-     y_by_lines <- gsub("[(][ ]", "(", y_by_lines, perl = TRUE)
-  
-     y_whole <- paste(y_by_lines, collapse = ' ')
-  
-     y_whole <- qdapRegex::rm_citation(y_whole)
-     y_whole <- qdapRegex::rm_url(y_whole)
-     y_whole <- qdapRegex::rm_abbreviation(y_whole)
-     y_whole <- textclean::replace_email(y_whole)
-  
-     y_whole <- gsub("[,]", " ,", y_whole, perl = TRUE)
-  
-     y_whole <- gsub("[.][0-9]", "x", y_whole, ignore.case = TRUE, perl = TRUE, useBytes = TRUE)
-  
-     y_whole <- gsub("[-][ ]|[/]", " ", y_whole, ignore.case = TRUE, perl = TRUE, useBytes = TRUE)
-  
-     y_whole<-gsub("[^ -~]"," ",y_whole, perl = TRUE, useBytes = TRUE)   
-     y <- unlist(strsplit(y_whole, "[.]|[;]|[:]\\s|\\s[0-9][)]|[(][0-9][)]"))  
-  
-     y <- gsub("  ", " ", y, perl = TRUE, useBytes = TRUE)
-     y <- gsub("^ ", "", y, perl = TRUE, useBytes = TRUE)
-     y <- gsub("$", " ", y, perl = TRUE, useBytes = TRUE)
-     unique(y)
+    ##y_by_lines <- suppressWarnings(pdftools::pdf_text(docs))
+    kw_by_lines <- suppressWarnings(pdfsearch::keyword_search(docs,path=TRUE,token_results=FALSE,keyword = c(''),split_pdf = TRUE,surround_lines = FALSE, ignore_case = TRUE, remove_hyphen = TRUE, heading_search = FALSE,convert_sentence = FALSE,split_pattern="\\p{WHITE_SPACE}{5,}"))
+    y_by_lines <- paste(kw_by_lines$line_text)
+    if(NROW(y_by_lines)==0){y_by_lines <- suppressWarnings(pdftools::pdf_text(docs))}
+    
+    ###remove apostrophes, contractions, and Latin characters
+    y_by_lines <- stringi::stri_trans_general(str = y_by_lines, id = "Latin-ASCII")
+    y_by_lines <- textclean::replace_contraction(y_by_lines)
+    y_by_lines <- gsub("'", " ", y_by_lines, perl = TRUE)
+    
+    ##########remove carriage returns and various other line breaks 
+    y_by_lines <- gsub("(\")", "", y_by_lines, perl = TRUE, useBytes = TRUE)
+    y_by_lines <- gsub("[\f]", " ", y_by_lines, perl = TRUE, useBytes = TRUE)
+    y_by_lines <- gsub("[\001]|[\002]|[\003]|[\004]|[\005]", " ", y_by_lines, perl = TRUE, useBytes = TRUE)
+    y_by_lines <- gsub("[\r]", " ", y_by_lines, perl = TRUE, useBytes = TRUE)
+    y_by_lines <- gsub("[\n]", "  ", y_by_lines, perl = TRUE, useBytes = TRUE)
+    
+    ###replace various unicode characters, symbols, bullets, or numbers at the start of a line with a period
+    y_by_lines <- gsub("[\u008f]|[\u0081]|[\u0083]|[\u0093]|[\uF0B7]|[\uF0A7]|[\u2022]|[\u00B7]|[•]| o |^- |^[0-9][,]|^[0-9][.]|^[0-9][ ]|^[0-9][0-9][,]|^[0-9][0-9][.]|^[0-9][0-9][ ]|^[0-9][0-9][0-9][,]|^[0-9][0-9][0-9][.]|^[0-9][0-9][0-9][ ]|[+]|[ ][o][ ]|^[o][ ]", ". ", y_by_lines, perl = TRUE)
+    
+    ### split double spaces as the start of a new line
+    y_by_lines <- unlist(strsplit(y_by_lines, "\\s\\s"))
+    y_by_lines <- y_by_lines[y_by_lines != ""]
+    
+    ### if line (like in a list or table) starts with a capital letter, then add a period (but only if that line doesn't already contain one)
+    ### replace singular Capital Letters (Initials) with a blank
+    y_by_lines[grep("^ [A-Z]", y_by_lines, perl = TRUE, useBytes = TRUE)] <- gsub("^ ", ". ", y_by_lines[grep("^ [A-Z]", y_by_lines, perl = TRUE, useBytes = TRUE)], perl = TRUE, useBytes = TRUE)
+    y_by_lines[setdiff(grep("^[A-Z]", y_by_lines, perl = TRUE, useBytes = TRUE),grep("[.]|[;]|[:]", y_by_lines, perl = TRUE, useBytes = TRUE))] <- paste(". ", y_by_lines[setdiff(grep("^[A-Z]", y_by_lines, perl = TRUE, useBytes = TRUE),grep("[.]|[;]|[:]", y_by_lines, perl = TRUE, useBytes = TRUE))], sep = "")
+    y_by_lines[grep("[ ][A-Z][.][ ]|[ ][A-Z][.][)]", y_by_lines, perl = TRUE, useBytes = TRUE)] <- gsub("[.]","",y_by_lines[grep("[ ][A-Z][.][ ]|[ ][A-Z][.][)]", y_by_lines, perl = TRUE, useBytes = TRUE)])
+    
+    ###add space in front of parentheticals and split by spaces so each word on own line; remove empty lines
+    y_by_lines <- gsub("[(]", "( ", y_by_lines, perl = TRUE)
+    y_by_lines <- gsub("[)]", " )", y_by_lines, perl = TRUE)
+    y_by_lines <- unlist(strsplit(y_by_lines, "\\s"))
+    y_by_lines <- y_by_lines[y_by_lines != ""]
+    
+    ##remove periods from various abbreviations
+    y_by_lines[grep("^ac[.]|^Dept[.]|^Dr[.]|^est[.]|^etc[.]|^ft[.]|^inc[.]|^cm[.]|^mm[.]|^m[.]|^mi[.]|^rd[.]|^sp[.]|^spp[.]|^sq[.]|^st[.]|^U[.]S[.]|^ed[.]|^eds[.]",y_by_lines, ignore.case = TRUE)] <- gsub("[.]", "", y_by_lines[grep("^ac[.]|^Dept[.]|^Dr[.]|^est[.]|^etc[.]|^ft[.]|^inc[.]|^cm[.]|^mm[.]|^m[.]|^mi[.]|^rd[.]|^sp[.]|^spp[.]|^sq[.]|^st[.]|^U[.]S[.]|^ed[.]|^eds[.]",y_by_lines, ignore.case = TRUE)], ignore.case = TRUE, perl = TRUE, useBytes = TRUE)
+    
+    ###collapse lines to a single string; remove spaces from parentheticals
+    y_whole <- paste(y_by_lines, collapse = ' ')
+    y_whole <- gsub("[(][ ]", "(", y_whole, perl = TRUE)
+    y_whole <- gsub("[ ][)]", ")", y_whole, perl = TRUE)
+    
+    ###add comma in front of years that are likely a citation
+    y_whole <- gsub(" 19",", 19",y_whole)
+    y_whole <- gsub(" 20",", 20",y_whole)
+    y_whole <- gsub(",,",",",y_whole)
+    
+    #########remove citations, urls, abbreviations and email addresses
+    y_whole <- qdapRegex::rm_citation(y_whole)
+    y_whole <- qdapRegex::rm_url(y_whole)
+    y_whole <- qdapRegex::rm_abbreviation(y_whole)
+    y_whole <- textclean::replace_email(y_whole)
+    
+    ##############remove commas and remove empty parentheses
+    y_whole <- gsub("[,]", "", y_whole, perl = TRUE)
+    y_whole <- gsub("[(][)]", " ", y_whole, perl = TRUE)
+    y_whole <- gsub("[(][; ]{1,10}[)]", " ", y_whole, perl = TRUE)
+    
+    ###replace likely decimals with an x
+    y_whole <- gsub("[.][0-9]", "x", y_whole, ignore.case = TRUE, perl = TRUE, useBytes = TRUE)
+    
+    ###remove hyphens and non-printable ascii characters
+    y_whole <- gsub("[-][ ]|[/]", " ", y_whole, ignore.case = TRUE, perl = TRUE, useBytes = TRUE)
+    y_whole <- gsub("[^ -~]"," ",y_whole, perl = TRUE, useBytes = TRUE)   
+    
+    ###break into likely sentences or clauses based on periods, semicolons, colons, or enumerated lists
+    y <- unlist(strsplit(y_whole, "[.]|[;]|[:]\\s|\\s[0-9][)]|[(][0-9][)]|[?]"))  
+    
+    ###clean up extra spaces; add space to start and end of line
+    y <- y[y != ""]; y <- y[y !=" "]; y <- y[y !=" )"];  y <- y[y !=" ) "];
+    y <- gsub("  ", " ", y, perl = TRUE, useBytes = TRUE)
+    y <- gsub("$", " ", y, perl = TRUE, useBytes = TRUE)
+    y <- gsub("^", " ", y, perl = TRUE, useBytes = TRUE)
+    y <- gsub("  ", " ", y, perl = TRUE, useBytes = TRUE)
+    unique(y)
   }
 }
 
@@ -137,12 +168,18 @@ synonym_searcher <- function(docs, keywords, add_sent = 1, res = dplyr::tibble()
     text_as_df <- dplyr::tibble("Line Number" = seq(1, NROW(text)),
                                 "Sentence" = text)
     
+    ## for each triplet component (Environment, Beneficiary, Attribute) search sentences for Include and Near words, Exclude
     for(c in unique(keywords$Category)) {
       keyword_sub <- dplyr::filter(keywords, Category == c)
       
+      ##for each row in the keyword list search,  search sentences for Include and Near words, Exclude
       for(i in 1:NROW(keyword_sub)) {
+        
+        ###find the sentences that contain the 'include' word
         matched_rows <- text_as_df$`Line Number`[grep(keyword_sub$Include[i], text_as_df$Sentence, ignore.case = TRUE, perl = TRUE, useBytes = TRUE)]
         
+        ###filter those matching sentences to also contain 'near' word, but not 'exclude' word
+        ### tag the matching sentences with the associated classes/subclasses and add to a table
         if(NROW(matched_rows) > 0) {
           ind_hits <- dplyr::filter(text_as_df, `Line Number` %in% matched_rows)
           matched_rows<-ind_hits$'Line Number'[setdiff(grep(keyword_sub$Near[i], ind_hits$Sentence,ignore.case=TRUE,perl=TRUE, useBytes = TRUE),grep(keyword_sub$Exclude[i], ind_hits$Sentence,ignore.case=TRUE,perl=TRUE, useBytes = TRUE))]
@@ -159,6 +196,7 @@ synonym_searcher <- function(docs, keywords, add_sent = 1, res = dplyr::tibble()
         
       }
       
+      ##To speed up searching, subset the full set of document sentences to those that matched atleast one Environment class/subclass, and on the next pass atleast one beneficiary class/subclass;
       if(which(unique(keywords$Category)==c)<3){
           line_sub <- res$`Line Number`
       
@@ -171,6 +209,9 @@ synonym_searcher <- function(docs, keywords, add_sent = 1, res = dplyr::tibble()
        }
     }
     
+    
+    ####For each sentence with a matching keyword, assign the associated class/subclass1/sub-subclass hierarchy
+    ####In the Synonym_List_NESCS_plustaxa.csv file, 'Tier' indicates the level in the hierarchy, class=1, subclass=2, etc.
     if(NROW(res) > 0) {
       res <- unique(res)
       
@@ -212,6 +253,8 @@ synonym_searcher <- function(docs, keywords, add_sent = 1, res = dplyr::tibble()
 # Find triplets -----
 find_triplets <- function(syn_match, add_sent = 1, keywords) {
   BEF <- dplyr::tibble(Document = character(), Line_Number = integer(), Sentence = character())
+  # For each sentence with matching keywords, find all combinations of Environment, Beneficiary, FEGS Attribute subclasses that were tagged to that sentence
+  # Identify triplet Matches = 3 as having all three (Env, Ben, Att) in single sentence, or only 1 or 2 of the three 
   for (c in sort(unique(syn_match$Category))) {
     tmp <- dplyr::filter(syn_match, Category == c) |>
       dplyr::select(Document = `Planning Doc`, Line_Number = `Line Number`, Sentence = `Text from Planning Doc`, SubClass)
@@ -227,14 +270,17 @@ find_triplets <- function(syn_match, add_sent = 1, keywords) {
     }
   }
   
+  ## Grab the sentences that have all three (Env, Ben, Att) in single sentence, assign Consider_Paragraph=0
   BEF_Trips <- BEF |>
     dplyr::filter(Matches == 3) |>
     dplyr::mutate(Paragraph_Text = Sentence,
                   Consider_Paragraph = 0)
-  
+
+  ###search prior and latter sentence for any missing of the three (Env, Ben, Att)
   if(NROW(BEF_Trips) > 0) {
     if(add_sent>0){for(a_s in 1:add_sent){  
       
+      ###identify prior and latter sentence and combine into a 'paragraph' 
       BEF_NoB <- BEF |>
         dplyr::filter(Matches != 3) |>
         dplyr::mutate(Line_Pm1 = Line_Number - as.numeric(a_s),
@@ -251,11 +297,14 @@ find_triplets <- function(syn_match, add_sent = 1, keywords) {
                               Original_Beneficiary_SubClass = character(), Original_Ecosystem_SubClass = character(), Original_FEGS_SubClass = character(),Consider_Paragraph = numeric(),
                               Beneficiary_SubClass_MP1 = character(), Ecosystem_SubClass_MP1 = character(), FEGS_SubClass_MP1 = character())
 
+
+      ###for each category (Ben, Env, FEGS Att) that was tagged, check prior or latter sentence for the other missing categories
       for(n in colnames(BEF_NoB)[7:9]) {
         if(n == colnames(BEF_NoB)[7]) {
           df <- BEF_NoB
         }
         
+        ###join the matched category in one sentence (e.g., Ben), to prior or latter sentences that may contain missing classes (e.g., Eco, Fegs Att)
         tmp_m1 <- dplyr::inner_join(df, unique(dplyr::select(dplyr::filter(BEF, !is.na(n)), Document, Line_Number, all_of(n))),
                                     by = c("Document", "Line_Pm1" = "Line_Number"), relationship = "many-to-many")
         colnames(tmp_m1)[grepl(".x", colnames(tmp_m1), fixed = TRUE, perl = TRUE, useBytes = TRUE)] <- paste0("Original_", n)
@@ -268,6 +317,7 @@ find_triplets <- function(syn_match, add_sent = 1, keywords) {
       
         tmp_mp <- unique(rbind(tmp_m1, tmp_p1))
       
+        ###join with those that did not find a match in prior or latter sentence
         tmp_x <- df |>
           dplyr::filter(!paste(Document, Line_Number) %in% paste(tmp_mp$Document, tmp_mp$Line_Number))
         colnames(tmp_x)[grepl(n, colnames(tmp_x), fixed = TRUE, perl = TRUE, useBytes = TRUE)] <- paste0("Original_", n)
@@ -280,7 +330,9 @@ find_triplets <- function(syn_match, add_sent = 1, keywords) {
       
         df <- tmp
       }
-    
+
+      ###table of original triplets from a single sentence, combined with amended triplets from prior/latter sentences    
+      ###tag sentences with Consider_Paragraph = [0,1][0,1][0,1] if [Ben][Eco][Fegs Att] came from single sentence=0 or 'paragraph'=1   
       BEF_mp <- BEF_mp |>
         dplyr::mutate(Beneficiary_SubClass = ifelse(is.na(Original_Beneficiary_SubClass) & !is.na(Beneficiary_SubClass_MP1),
                                                     Beneficiary_SubClass_MP1, Original_Beneficiary_SubClass),
@@ -295,6 +347,8 @@ find_triplets <- function(syn_match, add_sent = 1, keywords) {
                       Consider_Paragraph = ifelse(is.na(Original_FEGS_SubClass) & !is.na(FEGS_SubClass_MP1),
                                                   Consider_Paragraph + (as.numeric(a_s) * 100), Consider_Paragraph))
     
+
+      ####filter to keep sentences with Triplet matches from sentence or Paragraph = 3  [Ben, Eco, Fegs Att]
       BEF_mp1 <- BEF_mp |>
         dplyr::filter(Consider_Paragraph>0) |>
         dplyr::mutate(Matches = 3 - (is.na(Beneficiary_SubClass) + is.na(Ecosystem_SubClass) + is.na(FEGS_SubClass)))
@@ -307,6 +361,7 @@ find_triplets <- function(syn_match, add_sent = 1, keywords) {
       BEF_mp1 <- BEF_mp1 |>
         dplyr::select(Document, Line_Number, Sentence = Original_Sentence, Beneficiary_SubClass, Ecosystem_SubClass, FEGS_SubClass, Paragraph_Text, Consider_Paragraph)
 
+      ####set aside sentences withOut triplets for possible search of -2, +2 sentences but only IF add_sent=2 
       BEF<-dplyr::anti_join(BEF,BEF_mp1_Done,by=c('Line_Number','Beneficiary_SubClass','Ecosystem_SubClass','FEGS_SubClass'))
       
       BEF <- unique(rbind(dplyr::select(BEF, -Matches), unique(BEF_mp1)))   |>   
@@ -318,9 +373,8 @@ find_triplets <- function(syn_match, add_sent = 1, keywords) {
     }}  ###loop over +1,+2
 
 
-    
-    
-    
+    ####For each sentence with matching triplets (Ben, Eco, Fegs Att), assign the associated class/subclass1/sub-subclass hierarchy
+    ####If a more specific category (e.g., subclass) is tagged, then remove the less specific category as a match (e.g., class)
     res<-dplyr::select(BEF_Trips, 'Planning Doc'=Document,Beneficiary_SubClass,Ecosystem_SubClass,FEGS_SubClass,'Line Number'=Line_Number,'Text from Planning Doc'=Paragraph_Text) |> 
       tidyr::pivot_longer(cols=c("Beneficiary_SubClass","Ecosystem_SubClass","FEGS_SubClass"),names_to="Category",values_to = "SubClass") |>
       dplyr::left_join(unique(keywords[keywords$Word_type1=="include",c("Class","SubClass","Tier"),])) |>
@@ -361,8 +415,7 @@ find_triplets <- function(syn_match, add_sent = 1, keywords) {
       dplyr::select("Document","Line_Number","Sentence","Beneficiary_SubClass","Ecosystem_SubClass","FEGS_SubClass","Paragraph_Text","Consider_Paragraph","Matches")
     
     
-    
-              
+    ######add nesting classes to table of sentences with matched triplets
     Triplets <- unique(dplyr::select(BEF_Trips, -Matches)) |>
       dplyr::mutate(Beneficiary_SubClass = ifelse(is.na(Beneficiary_SubClass), "blank", Beneficiary_SubClass),
                     Ecosystem_SubClass = ifelse(is.na(Ecosystem_SubClass), "blank", Ecosystem_SubClass),
@@ -372,6 +425,7 @@ find_triplets <- function(syn_match, add_sent = 1, keywords) {
       dplyr::left_join(., dplyr::select(dplyr::filter(synonym_list, Word_type == "include"), Class, SubClass), by = c("FEGS_SubClass" = "SubClass")) |>
       dplyr::rename(bens_class1 = Class.x, eco_class1 = Class.y, fegs_class1 = Class)
 
+    #######tag types of fauna (birds, etc.) as "Fauna"
     Triplets <- Triplets |>
       dplyr::mutate(FEGS_Fauna = ifelse(grepl("fauna_", Triplets$FEGS_SubClass, ignore.case = TRUE, perl = TRUE, useBytes = TRUE) & fegs_class1 == "Fauna",
                                         paste0(fegs_class1, ": ", stringr::str_remove(FEGS_SubClass, "[Ff]auna_")), NA),
@@ -441,7 +495,7 @@ dims <- dplyr::tibble(profile = c("ben", "ben", "fegs", "fegs"),
 
 
 
-# Clean triplets -----
+# Clean triplets removing blanks and adding color codes-----
 clean_triplets <- function(triplets_match, triplets_count, add_sent = 1) {
   AllTriplets <- dplyr::inner_join(dplyr::filter(triplets_match, FEGS_SubClass != "blank"),
                                    dplyr::select(triplets_count, Beneficiary_SubClass, Ecosystem_SubClass, FEGS_SubClass, Count, FINAL),
