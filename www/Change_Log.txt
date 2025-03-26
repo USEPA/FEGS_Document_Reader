@@ -1,0 +1,13 @@
+12/11/2024
+Initial Beta version of FEGS Document Reader launched
+
+3/24/2025
+Minor clarifying edits to user guide in response to Beta Testing
+Added additional explanation and NESCS Plus classes to tabs at startup
+Added keyword "mainstream" as an exclude word to "Rivers and Streams"
+Added this change log
+Improved ability of citation remover to recognize and remove citations when documents uploaded
+
+
+
+ 
