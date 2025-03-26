@@ -1,3 +1,4 @@
+# This file stages the 'Targets' controller to run analysis of documents in parallel, speeding up overall computational time
 
 # _targets.R file
 # Load targets library

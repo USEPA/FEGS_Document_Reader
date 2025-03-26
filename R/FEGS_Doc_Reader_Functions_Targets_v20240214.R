@@ -1,4 +1,6 @@
-
+# This file contains a duplicate of 'pdf_clean' and 'synonym searcher' from 'FEGS_Doc_Reader_Functions_v20230623.R'
+# Any edits to these two functions must be duplicated in both places
+# This file is necessary to run "Targets" and is called by the 'workers' that read the documents in parallel to speed up processing
 
 # Clean and format PDF text prior to keyword search -----
 pdf_clean <- function(docs) {
@@ -8,48 +10,77 @@ pdf_clean <- function(docs) {
     y_by_lines <- paste(kw_by_lines$line_text)
     if(NROW(y_by_lines)==0){y_by_lines <- suppressWarnings(pdftools::pdf_text(docs))}
     
+    ###remove apostrophes, contractions, and Latin characters
     y_by_lines <- stringi::stri_trans_general(str = y_by_lines, id = "Latin-ASCII")
     y_by_lines <- textclean::replace_contraction(y_by_lines)
     y_by_lines <- gsub("'", " ", y_by_lines, perl = TRUE)
     
+    ##########remove carriage returns and various other line breaks 
     y_by_lines <- gsub("(\")", "", y_by_lines, perl = TRUE, useBytes = TRUE)
     y_by_lines <- gsub("[\f]", " ", y_by_lines, perl = TRUE, useBytes = TRUE)
     y_by_lines <- gsub("[\001]|[\002]|[\003]|[\004]|[\005]", " ", y_by_lines, perl = TRUE, useBytes = TRUE)
     y_by_lines <- gsub("[\r]", " ", y_by_lines, perl = TRUE, useBytes = TRUE)
     y_by_lines <- gsub("[\n]", "  ", y_by_lines, perl = TRUE, useBytes = TRUE)
     
+    ###replace various unicode characters, symbols, bullets, or numbers at the start of a line with a period
     y_by_lines <- gsub("[\u008f]|[\u0081]|[\u0083]|[\u0093]|[\uF0B7]|[\uF0A7]|[\u2022]|[\u00B7]|[•]| o |^- |^[0-9][,]|^[0-9][.]|^[0-9][ ]|^[0-9][0-9][,]|^[0-9][0-9][.]|^[0-9][0-9][ ]|^[0-9][0-9][0-9][,]|^[0-9][0-9][0-9][.]|^[0-9][0-9][0-9][ ]|[+]|[ ][o][ ]|^[o][ ]", ". ", y_by_lines, perl = TRUE)
     
+    ### split double spaces as the start of a new line
     y_by_lines <- unlist(strsplit(y_by_lines, "\\s\\s"))
+    y_by_lines <- y_by_lines[y_by_lines != ""]
+    
+    ### if line (like in a list or table) starts with a capital letter, then add a period (but only if that line doesn't already contain one)
+    ### replace singular Capital Letters (Initials) with a blank
     y_by_lines[grep("^ [A-Z]", y_by_lines, perl = TRUE, useBytes = TRUE)] <- gsub("^ ", ". ", y_by_lines[grep("^ [A-Z]", y_by_lines, perl = TRUE, useBytes = TRUE)], perl = TRUE, useBytes = TRUE)
     y_by_lines[setdiff(grep("^[A-Z]", y_by_lines, perl = TRUE, useBytes = TRUE),grep("[.]|[;]|[:]", y_by_lines, perl = TRUE, useBytes = TRUE))] <- paste(". ", y_by_lines[setdiff(grep("^[A-Z]", y_by_lines, perl = TRUE, useBytes = TRUE),grep("[.]|[;]|[:]", y_by_lines, perl = TRUE, useBytes = TRUE))], sep = "")
-    y_by_lines[grep("[ ][A-Z][.][ ]", y_by_lines, perl = TRUE, useBytes = TRUE)] <- gsub("[.]","",y_by_lines[grep("[ ][A-Z][.][ ]", y_by_lines, perl = TRUE, useBytes = TRUE)])
+    y_by_lines[grep("[ ][A-Z][.][ ]|[ ][A-Z][.][)]", y_by_lines, perl = TRUE, useBytes = TRUE)] <- gsub("[.]","",y_by_lines[grep("[ ][A-Z][.][ ]|[ ][A-Z][.][)]", y_by_lines, perl = TRUE, useBytes = TRUE)])
     
+    ###add space in front of parentheticals and split by spaces so each word on own line; remove empty lines
+    y_by_lines <- gsub("[(]", "( ", y_by_lines, perl = TRUE)
+    y_by_lines <- gsub("[)]", " )", y_by_lines, perl = TRUE)
     y_by_lines <- unlist(strsplit(y_by_lines, "\\s"))
     y_by_lines <- y_by_lines[y_by_lines != ""]
-    y_by_lines <- gsub("[(]", "( ", y_by_lines, perl = TRUE)
-    y_by_lines[grep("^ac[.]|^Dept[.]|^Dr[.]|^est[.]|^etc[.]|^ft[.]|^inc[.]|^cm[.]|^mm[.]|^m[.]|^mi[.]|^rd[.]|^sp[.]|^spp[.]|^sq[.]|^st[.]|^ed[.]|^eds[.]",y_by_lines, ignore.case = TRUE)] <- gsub("[.]", "", y_by_lines[grep("^ac[.]|^Dept[.]|^Dr[.]|^est[.]|^etc[.]|^ft[.]|^inc[.]|^cm[.]|^mm[.]|^m[.]|^mi[.]|^rd[.]|^sp[.]|^spp[.]|^sq[.]|^st[.]|^ed[.]|^eds[.]",y_by_lines, ignore.case = TRUE)], ignore.case = TRUE, perl = TRUE, useBytes = TRUE)
-    y_by_lines <- gsub("[(][ ]", "(", y_by_lines, perl = TRUE)
     
+    ##remove periods from various abbreviations
+    y_by_lines[grep("^ac[.]|^Dept[.]|^Dr[.]|^est[.]|^etc[.]|^ft[.]|^inc[.]|^cm[.]|^mm[.]|^m[.]|^mi[.]|^rd[.]|^sp[.]|^spp[.]|^sq[.]|^st[.]|^U[.]S[.]|^ed[.]|^eds[.]",y_by_lines, ignore.case = TRUE)] <- gsub("[.]", "", y_by_lines[grep("^ac[.]|^Dept[.]|^Dr[.]|^est[.]|^etc[.]|^ft[.]|^inc[.]|^cm[.]|^mm[.]|^m[.]|^mi[.]|^rd[.]|^sp[.]|^spp[.]|^sq[.]|^st[.]|^U[.]S[.]|^ed[.]|^eds[.]",y_by_lines, ignore.case = TRUE)], ignore.case = TRUE, perl = TRUE, useBytes = TRUE)
+    
+    ###collapse lines to a single string; remove spaces from parentheticals
     y_whole <- paste(y_by_lines, collapse = ' ')
+    y_whole <- gsub("[(][ ]", "(", y_whole, perl = TRUE)
+    y_whole <- gsub("[ ][)]", ")", y_whole, perl = TRUE)
     
+    ###add comma in front of years that are likely a citation
+    y_whole <- gsub(" 19",", 19",y_whole)
+    y_whole <- gsub(" 20",", 20",y_whole)
+    y_whole <- gsub(",,",",",y_whole)
+    
+    #########remove citations, urls, abbreviations and email addresses
     y_whole <- qdapRegex::rm_citation(y_whole)
     y_whole <- qdapRegex::rm_url(y_whole)
     y_whole <- qdapRegex::rm_abbreviation(y_whole)
     y_whole <- textclean::replace_email(y_whole)
     
-    y_whole <- gsub("[,]", " ,", y_whole, perl = TRUE)
+    ##############remove commas and remove empty parentheses
+    y_whole <- gsub("[,]", "", y_whole, perl = TRUE)
+    y_whole <- gsub("[(][)]", " ", y_whole, perl = TRUE)
+    y_whole <- gsub("[(][; ]{1,10}[)]", " ", y_whole, perl = TRUE)
     
+    ###replace likely decimals with an x
     y_whole <- gsub("[.][0-9]", "x", y_whole, ignore.case = TRUE, perl = TRUE, useBytes = TRUE)
     
+    ###remove hyphens and non-printable ascii characters
     y_whole <- gsub("[-][ ]|[/]", " ", y_whole, ignore.case = TRUE, perl = TRUE, useBytes = TRUE)
+    y_whole <- gsub("[^ -~]"," ",y_whole, perl = TRUE, useBytes = TRUE)   
     
-    y_whole<-gsub("[^ -~]"," ",y_whole, perl = TRUE, useBytes = TRUE)   
-    y <- unlist(strsplit(y_whole, "[.]|[;]|[:]\\s|\\s[0-9][)]|[(][0-9][)]"))  
+    ###break into likely sentences or clauses based on periods, semicolons, colons, or enumerated lists
+    y <- unlist(strsplit(y_whole, "[.]|[;]|[:]\\s|\\s[0-9][)]|[(][0-9][)]|[?]"))  
     
+    ###clean up extra spaces; add space to start and end of line
+    y <- y[y != ""]; y <- y[y !=" "]; y <- y[y !=" )"];  y <- y[y !=" ) "];
     y <- gsub("  ", " ", y, perl = TRUE, useBytes = TRUE)
-    y <- gsub("^ ", "", y, perl = TRUE, useBytes = TRUE)
     y <- gsub("$", " ", y, perl = TRUE, useBytes = TRUE)
+    y <- gsub("^", " ", y, perl = TRUE, useBytes = TRUE)
+    y <- gsub("  ", " ", y, perl = TRUE, useBytes = TRUE)
     unique(y)
   }
 }
@@ -72,12 +103,18 @@ synonym_searcher <- function(docs, keywords, add_sent = 1, res = dplyr::tibble()
     text_as_df <- dplyr::tibble("Line Number" = seq(1, NROW(text)),
                                 "Sentence" = text)
     
+    ## for each triplet component (Environment, Beneficiary, Attribute) search sentences for Include and Near words, Exclude
     for(c in unique(keywords$Category)) {
       keyword_sub <- dplyr::filter(keywords, Category == c)
       
+      ##for each row in the keyword list search,  search sentences for Include and Near words, Exclude
       for(i in 1:NROW(keyword_sub)) {
+        
+        ###find the sentences that contain the 'include' word
         matched_rows <- text_as_df$`Line Number`[grep(keyword_sub$Include[i], text_as_df$Sentence, ignore.case = TRUE, perl = TRUE, useBytes = TRUE)]
         
+        ###filter those matching sentences to also contain 'near' word, but not 'exclude' word
+        ### tag the matching sentences with the associated classes/subclasses and add to a table
         if(NROW(matched_rows) > 0) {
           ind_hits <- dplyr::filter(text_as_df, `Line Number` %in% matched_rows)
           matched_rows<-ind_hits$'Line Number'[setdiff(grep(keyword_sub$Near[i], ind_hits$Sentence,ignore.case=TRUE,perl=TRUE, useBytes = TRUE),grep(keyword_sub$Exclude[i], ind_hits$Sentence,ignore.case=TRUE,perl=TRUE, useBytes = TRUE))]
@@ -94,6 +131,7 @@ synonym_searcher <- function(docs, keywords, add_sent = 1, res = dplyr::tibble()
         
       }
       
+      ##To speed up searching, subset the full set of document sentences to those that matched atleast one Environment class/subclass, and on the next pass atleast one beneficiary class/subclass;
       if(which(unique(keywords$Category)==c)<3){
         line_sub <- res$`Line Number`
         
@@ -106,6 +144,9 @@ synonym_searcher <- function(docs, keywords, add_sent = 1, res = dplyr::tibble()
       }
     }
     
+    
+    ####For each sentence with a matching keyword, assign the associated class/subclass1/sub-subclass hierarchy
+    ####In the Synonym_List_NESCS_plustaxa.csv file, 'Tier' indicates the level in the hierarchy, class=1, subclass=2, etc.
     if(NROW(res) > 0) {
       res <- unique(res)
       
