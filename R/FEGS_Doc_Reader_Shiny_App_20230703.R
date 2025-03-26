@@ -1,4 +1,4 @@
-# Define UI for the FEGS Doc Reader  ----
+# Define Shiny User Interface (UI) and Server for the FEGS Doc Reader  ----
 
 #' FEGS document reader application
 #' 
@@ -527,7 +527,13 @@ fegs_app <- function() {
         # Set the width of the sidebar panel -----
         width = 3,
         
-      ),  # Close sidebar panel
+
+        # Add a break so this button is on its own line
+        shiny::br(),
+        shiny::br(),
+        shiny::a("Version Log",target="_blank",href="Change_Log.txt",style = "font-size: 10pt;")
+        
+        ),  # Close sidebar panel
       
       
       # Main panel: Output display ----
@@ -1118,7 +1124,13 @@ fegs_app <- function() {
       
       # If there is no data in trip_clean(), display a message that matches have not yet been found
       if(NROW(trip_clean()) == 0)
-        return(htmltools::div("Upload documents then click 'Find Matches' to search for keyword matches. Any single document must be less than 100MB, but one or more (up to dozens) of documents can be uploaded and analyzed. Finding Matches can take 10-30 seconds per document, or >60 seconds for large document sizes. Closing or minimizing the browser window, or lack of activity that causes computer to go to sleep or standby, may cause the server to timeout and results will not be saved automatically. Export results as soon as possible after finding matches to ensure results are saved. Output is based on an automated search for keywords in documents that has been reviewed, refined, and tested to optimize accuracy in the way sentences are categorized, but due to the complex and variable nature of written language, false hits cannot be eliminated entirely. Users are responsible for evaluating applicability, precision, accuracy, uncertainty, and other qualifications associated with usability of results.", style = "font-size: 12pt;"))
+        return(list(
+          htmltools::div("'Upload Document(s)' and then click 'Find Matches' to search for keyword matches. Documents may take several seconds to upload; a green bar under the 'Upload Document(s)' button will denote progress. Any single document must be less than 100MB, but one or more (up to dozens) of documents can be uploaded and analyzed.", style = "font-size: 12pt;"),
+          shiny::br(),
+          htmltools::div("Finding Matches can take 10-30 seconds per document, or >60 seconds for large document sizes. Closing or minimizing the browser window, or lack of activity that causes computer to go to sleep or standby, may cause the server to timeout and results will not be saved automatically. Export results as soon as possible after finding matches to ensure results are saved.", style = "font-size: 12pt;"),
+          shiny::br(),
+          htmltools::div("Output is based on an automated search for keywords in documents that has been reviewed, refined, and tested to optimize accuracy in the way sentences are categorized, but due to the complex and variable nature of written language, false hits cannot be eliminated entirely. Users are responsible for evaluating applicability, precision, accuracy, uncertainty, and other qualifications associated with usability of results.", style = "font-size: 12pt;")
+        ))
       
       # If there is data in trip_clean(), create a UI output indicating the status of the matches
       shiny::uiOutput("ui_match_tbl_message")
@@ -1415,7 +1427,7 @@ fegs_app <- function() {
         if(input$plot_type == "bar") {
           return("Frequency of ecosystem level II subclasses in documents, based on the relative frequency mentioned in documents. Labels help visualize NESCS Plus hierarchy, with classes in bold, subclass I in italics, and subclass II in plain font. Ecosystems labelled ‘in general’ are NOT summary or cumulative of their nested subclasses, but instead count sentences that could not be further classified to a finer subclass.")
         } else {
-          return("Frequency of ecosystem level I subclasses in documents, based on the relative frequency mentioned in documents. Aquatic or Terrestrial Ecosystem 'in General' are sentences that could not be classified into a finer subclass.")
+          return("Frequency of ecosystem level I subclasses in documents, based on summing the relative frequency of their nested level II subclasses (see bar chart) mentioned in documents. Aquatic or Terrestrial Ecosystem 'in General' are sentences that could not be classified into a finer subclass.")
         }
       })  # Close renderText
       
@@ -1424,16 +1436,16 @@ fegs_app <- function() {
         if(input$plot_type == "bar") {
           return("Relative prioritization scores of beneficiary level I subclasses in documents, based on the relative frequency mentioned in documents. Labels help visualize NESCS Plus hierarchy, with classes in bold and subclass I in plain font. Beneficiaries labelled ‘in general’ are NOT summary or cumulative of their nested subclasses, but instead count sentences that could not be further classified to a finer subclass.")
         } else {
-          return("Relative prioritization scores of beneficiary classes in documents, based on the relative frequency mentioned in documents.")
+          return("Relative prioritization scores of beneficiary classes in documents, based on summing the relative frequency of their nested subclasses (see bar chart) mentioned in documents.")
         }
       })  # Close renderText
       
       # Create description for attribute figure
       output$fegs_description <- shiny::renderText({
         if(input$plot_type == "bar") {
-          return("Relative prioritization scores of environmental attribute subclasses in documents, based on summing their relative importance to each beneficiary. Stacked colors indicate the relative contribution of each beneficiary class to the overall prioritization score. Labels help visualize NESCS Plus hierarchy, with classes in bold, subclasses in plain font, and split classes (where applicable) in italics. Environmental attributes labelled ‘in general’ are NOT summary or cumulative of their nested subclasses, but instead count sentences that could not be further classified to a finer subclass.")
+          return("Relative prioritization scores of environmental attribute subclasses in documents, based on summing their relative importance to each beneficiary. Stacked colors indicate the relative contribution of each beneficiary class to the overall prioritization score. Labels help visualize NESCS Plus hierarchy, with classes in bold, subclasses in plain font, and 'Composite' split classes in italics. Environmental attributes labelled ‘in general’ are NOT summary or cumulative of their nested subclasses, but instead count sentences that could not be further classified to a finer subclass.")
         } else {
-          return("Relative prioritization scores of environmental attribute classes in documents, based on summing their relative importance to each beneficiary. 'Composite' is further portioned into split classes, with 'composite in general' applied to sentences that could not be categorized into a finer 'composite' subclass.")
+          return("Relative prioritization scores of environmental attribute classes in documents, based on summing the relative importance of their nested subclasses (see bar chart) to each beneficiary. 'Composite' is split into several classes, with 'composite in general' applied to sentences that could not be categorized into a finer 'composite' subclass.")
         }
       })  # Close renderText
 
@@ -1508,10 +1520,11 @@ fegs_app <- function() {
             # Format columns 2, 3, & 4
             list(targets = c(2, 3, 4),
                  # Set the width to 130 pixels
-                 width = "130px")
+                 width = "100px")
           )  # Close column formatting
         )  # Close table options
-      )     # Close datatable
+      )  %>%    # Close datatable
+      DT::formatStyle(columns = c(1, 2, 3, 4, 5), fontSize = '85%')
 
     })  # Close renderDT
     
@@ -1521,10 +1534,16 @@ fegs_app <- function() {
     output$ui_eco_bars_message <- shiny::renderUI({
       
       # If there is no data in mean_efreq(), display a message that ecosystem figures haven't yet been created
-      if(NROW(mean_efreq()) == 0)
-        return(shiny::strong("An ecosystem profile figure has not yet been created. Please upload document(s) and follow the instructions found in the 'Instructions & Documents' panel.",
-                             style = "font-size: 14pt;"))
-
+      if(NROW(mean_efreq()) == 0){
+        return(list(shiny::strong("An ecosystem profile figure has not yet been created. Please upload document(s) and follow the instructions found in the 'Documents' tab.",
+                             style = "font-size: 14pt;"),
+                             shiny::br(),
+                             shiny::renderText("The FEGS Document Reader searches for keywords to identify categories of ecosystems most commonly mentioned in documents."),
+                             shiny::br(),
+                             img(src='Environment_Classes.JPG', width = "80%")
+                    ))
+      }
+      
       # If there is data in mean_efreq(), create a plot output for the ecosystem frequency figure
       # Active a "spinner" when figures are loading
       shinycssloaders::withSpinner(
@@ -1559,10 +1578,17 @@ fegs_app <- function() {
     output$ui_ben_figs_message <- shiny::renderUI({
       
       # If there is no data in mean_bfreq(), display a message that beneficiary figures haven't yet been created
-      if(NROW(mean_bfreq()) == 0)
-        return(shiny::strong("Beneficiary profile figures have not yet been created. Please upload document(s) and follow the instructions found in the 'Instructions & Documents' panel.",
-                             style = "font-size: 14pt;"))
+      if(NROW(mean_bfreq()) == 0){
+        return(list(shiny::strong("Beneficiary profile figures have not yet been created. Please upload document(s) and follow the instructions found in the 'Documents' tab.",
+                                  style = "font-size: 14pt;"),
+                    shiny::br(),
+                    shiny::renderText("The FEGS Document Reader searches for keywords to identify categories of natural resource users most commonly mentioned in documents."),
+                    shiny::br(),
+                    img(src='Beneficiary_Classes.JPG', width = "70%")
+        ))
+      }
       
+            
       # If there is data in mean_efreq(), create a UI output indicating the status of the beneficiary frequency figures
       shiny::uiOutput("ui_ben_figs")
       
@@ -1629,10 +1655,15 @@ fegs_app <- function() {
     output$ui_fegs_figs_message <- shiny::renderUI({
       
       # If there is no data in mean_ffreq(), display a message that ecosystem services figures haven't yet been created
-      if(NROW(mean_ffreq()) == 0)
-        return(shiny::strong("Ecosystem services profile figures have not yet been created. Please upload document(s) and follow the instructions found in the 'Instructions & Documents' panel.",
-                             style = "font-size: 14pt;"))
-      
+      if(NROW(mean_ffreq()) == 0){
+        return(list(shiny::strong("Ecosystem services profile figures have not yet been created. Please upload document(s) and follow the instructions found in the 'Documents' tab.",
+                                  style = "font-size: 14pt;"),
+                    shiny::br(),
+                    shiny::renderText("The FEGS Document Reader searches for keywords to identify categories of ecosystem attributes most commonly mentioned in documents as things natural resource users use or care about."),
+                    shiny::br(),
+                    img(src='Attribute_Classes.JPG', width = "80%")
+        ))
+      }
       # If there is data in mean_ffreq(), create a UI output indicating the status of the ecosystem services frequency figures
       shiny::uiOutput("ui_fegs_figs")
       
