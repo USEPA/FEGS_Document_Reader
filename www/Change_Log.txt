@@ -9,5 +9,10 @@ Added this change log
 Improved ability of citation remover to recognize and remove citations when documents uploaded
 
 
+4/22/2025
+Added folder of example documents
+Added list of library packages needed to be installed
+
+
 
  
